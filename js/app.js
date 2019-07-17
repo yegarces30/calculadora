@@ -136,6 +136,10 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
       }
     };
 
+/*
+la funcion operar realiza las operaciones aritmeticas y devuelve el resultado
+*/
+
     var operar = function(valor1,valor2,operacion){
       var resultado = 0;
       console.log("recibe operación: " + operacion);
@@ -167,6 +171,10 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
       return resultado;
     };
 
+/*
+la funcion obtenerResultado permite realizar todas las operaciones guardadas.
+Esta función se ejecuta al momento de hacer clic en el botón Igual
+*/
     var obtenerResultado = function(){
       var numero = obtenerNumero();
       numero = quitarPunto(numero);
@@ -199,6 +207,9 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
       esResultado = true;
     };
 
+/*
+la función quitarPunto remueve el punto decimal cuando este se encuentra al final del número y se desea realizas una operación
+*/
     var quitarPunto = function(valor){
       if(usaPunto == true  && valor[valor.length-1] == "."){
         var arreglo = valor.split("");
@@ -211,6 +222,9 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
       return valor;
     };
 
+/*
+la función obtenerRaizCuadrada permite hacer la operacion Math.sqrt al número mostrado en pantalla
+*/
     var obtenerRaizCuadrada = function(){
       var numero = obtenerNumero();
       numero = quitarPunto(numero);
@@ -221,6 +235,10 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
       establecerNumero(respuesta);
     };
 
+/*
+Permite asignar los eventos a todos los botones de la calculadora.
+Esta función se ejecuta al cargar la página
+*/
     var init = function(){
 
       var listId = [
