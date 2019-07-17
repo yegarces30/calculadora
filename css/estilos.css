@@ -166,6 +166,10 @@ body{
   width: 20% !important;
 }
 
+.img-mas:active{
+  width: 85% !important;
+}
+
 @media (max-width: 1000px){
 
   #calculadoraFondo{

@@ -16,7 +16,11 @@ La función obtenerNumero permite conocer el valor mostrado en pantalla
 */
     var obtenerNumero = function(){
         var campo = document.getElementById('display');
-        return campo.innerHTML;
+        var numero = campo.innerHTML;
+        if(numero == ""){
+          numero = "0";
+        }
+        return numero;
     };
 
 /*
@@ -44,24 +48,19 @@ mostrando el valor de 0
 /*
 La función mostrarNumero permite mostrar en pantalla el valor digitado haciendo clic en los botones numéricos
 */
+
     var mostrarNumero = function(numero) {
-      var num = obtenerNumero();
-      console.log("numero-------------: "+num);
 
         if(esResultado == true){
           establecerNumero("0");
-          console.log("se metiooo");
         }
-        var num = obtenerNumero();
-        console.log("numero: "+num);
         esResultado = false;
 
         var num = obtenerNumero();
-        console.log("numero: "+num);
+        if(esOperacion == true || num == "0"){
+            num = ""
+        }
         if (num.length <= 7){
-          if(esOperacion == true || num == "0"){
-              num = ""
-          }
           num += numero;
           establecerNumero(num);
         }
@@ -88,6 +87,7 @@ la función guardarOperacion permite guardar la operación realizada teniendo en
       }
       usaPunto = false;
       usaSigno = false;
+      establecerNumero("");
     };
 
 /*
@@ -121,8 +121,8 @@ La función mostrarPunto permite ver en pantalla el punto decimal, siempre y cua
           var arreglo = numero.split("");
           arreglo.shift();
           numero = "";
-          for (numero of arreglo) {
-            numero += numero;
+          for (num of arreglo) {
+            numero += num;
           }
 
           usaSigno = false;
